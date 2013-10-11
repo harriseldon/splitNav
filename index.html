@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SAP PI Launcher sapui5 edition</title>
+<script id="sap-ui-bootstrap"
+		type="text/javascript"
+		src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+		data-sap-ui-theme="sap_goldreflection"
+		data-sap-ui-libs="sap.m">
+</script>
+<script type="text/javascript">
+  $(function() {
+      var page = new sap.ui.m.Page( "mainpage" );
+	  var pageDetail = new sap.ui.m.Page( "detailpage" );
+      var app = new sap.ui.m.SplitApp( "mainapp",
+	      {
+		     mode: sap.m.SplitAppMode.PopoverMode ,
+			 masterButtonText: "masterButton",
+			 masterPages: [ page ],
+			 detailPages: [ pageDetail ],
+			 afterMasterNavigate: function( oControlEvent) {
+			       window.alert ( "afterMasterNavigate: " + oControlEvent.getSoruce );
+				},
+			 
+		     afterDetailNavigate: function( oControlEvent ) {
+			    window.alert ( "afterDetailNavigate: " + oControlEvent.getSoruce );
+			 
+			 }
+		  
+		  });
+  
+  
+  );
+
+</script>
