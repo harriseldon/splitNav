@@ -83,7 +83,18 @@ sap.ui.controller( "view.App", {
 	}
 	
 	//write history
+	if (!sNavType && (bMaster || jQuery.device.is.phone) ) {
+	    /*
+		{string}	sIdf	 The identifier defined in the routes which will be matched in order to call the corresponding handler
+		{object}	oStateData	 The object passed to the corresponding handler when the identifier is matched with the url hash
+		{boolean}	bBookmarkable	 Default value is set to true. If this is set to false, the default handler will be called when this identifier and data are matched
+		{boolean}	bVirtual?, Default:
+         */
+	   jQuery.sap.history.addHistory("page", {id: sViewId}, false);
+    }
 	
+	// log
+	jQuery.sap.log.info("navTo '" + sViewId + "' (" + (!sNavType && bMaster) + "," + sNavType + ")");
   }
 
 });
