@@ -9,7 +9,8 @@
 		data-sap-ui-libs="sap.m">
 </script>
 <script type="text/javascript">
-  $(function() {
+/*
+  $.(function() {
       var page = new sap.ui.m.Page( "mainpage" );
 	  var pageDetail = new sap.ui.m.Page( "detailpage" );
       var app = new sap.ui.m.SplitApp( "mainapp",
@@ -30,6 +31,19 @@
 		  });
   
   
-  );
+  );*/
+		// Tell UI5 where to find application content
+		sap.ui.localResources("view");
+		
+		jQuery.sap.registerModulePath('Application', './Application');
 
+		// Launch application
+		jQuery.sap.require("Application");
+		var oApp = new Application({root : "content"});
+  
 </script>
+</head>
+<body class="sapUiBody" id="content">
+
+</body>
+</html>
